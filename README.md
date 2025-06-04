@@ -1,4 +1,4 @@
-```markdown
+
 ## Sobre este projeto
 
 Este projeto demonstra um serviço gRPC.
@@ -55,7 +55,7 @@ Exemplos de casos de uso:
 - Processamento de transações: Transferir fundos entre contas.
 - Detecção de fraudes: Analisar transações em tempo real para identificar atividades fraudulentas.
 - Relatórios: Gerar relatórios sobre a atividade da conta e o desempenho do sistema.
-```
+
 
 ## Testando o serviço gRPC com Evans
 
