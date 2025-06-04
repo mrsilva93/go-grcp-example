@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+option go_package ="internal/pb";
+
+
+message TransactionType {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message TransactionTypeResponse {
+    TransactionType TransactionType = 1;
+}
+
+message CreateTransactionTypeRequest {
+    string name = 1;
+    string description = 2;
+}
+
+service TransactionTypeService {
+    rpc CreateTransactionType(CreateTransactionTypeRequest) returns (TransactionTypeResponse);
+}

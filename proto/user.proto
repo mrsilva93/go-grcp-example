@@ -1,0 +1,37 @@
+syntax = "proto3";
+package pb;
+option go_package ="internal/pb";
+
+message Blank {}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string cnpj = 3;
+}
+
+message UserResponse {
+    User user = 1;
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string cnpj = 2;
+}
+
+message GetUserRequest {
+    string cnpj = 1;
+    string id = 2; // Optional, can be used to specify a user by ID
+}
+
+message UserListResponse {
+    repeated User users = 1; //repeated field to hold multiple users
+}
+
+service UserService {
+    rpc CreateUser (CreateUserRequest) returns (UserResponse);
+    rpc CreateUserStream(stream CreateUserRequest) returns (UserListResponse){};
+    rpc CreateUserStreamBidirectional(stream CreateUserRequest) returns (stream UserResponse);
+    rpc ListUsers (Blank) returns (UserListResponse);
+    rpc GetUser (GetUserRequest) returns (UserResponse);
+}
